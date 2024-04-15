@@ -1,0 +1,4 @@
+# Basic gitignore for python projects
+venv
+__pycache__
+.env
