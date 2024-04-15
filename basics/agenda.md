@@ -1,13 +1,11 @@
-# Python
+# python-crash-course: Agenda
 
-## Official documentation
+## Resources
 
-[official documentation](https://docs.python.org/3/tutorial/index.html)
+1. [Official documentation](https://docs.python.org/3/tutorial/index.html)
 
 ## Topics
 
-- **Python environment configuration**
-  - Installation of the latest python version  [3.12.3](https://www.python.org/downloads/)
 - **Variables, data types and operators**
   - Int, float, complex, str, booleans (variable scope)
   - List, tuple, range, dict (basic operations)
@@ -25,13 +23,14 @@
   - Inheritance and polymorphism
 - **Exception handling**
   - try-catch-finally
-  - customized exceptions
+  - Customized exceptions
 - **Working with files**
   - Reading and writing text files.
   - Read/write operations with binary files.
   - Handling file and directory paths.
 - **Functional programming**
-  - lambda, filter, map, reduce
+  - lambda
+  - functools basics: filter, map, reduce
 - **Advanced Modules**
   - Use of advanced standard modules (os, sys, datetime, etc.).
   - Creation of third party modules and use of pip.
@@ -41,5 +40,5 @@
   - Asynchronous programming with asyncio and async/await.
 - **Web development with Python**
   - Introduction to web frameworks (Flask, Django).
-  - Creation of simple web applications.
-  - Database manipulation with ORM.
+  - Database manipulation with ORMs (SQLAlchemy).
+  - Authentication and authorization.
