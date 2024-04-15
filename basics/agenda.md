@@ -33,7 +33,6 @@
   - functools basics: filter, map, reduce
 - **Advanced Modules**
   - Use of advanced standard modules (os, sys, datetime, etc.).
-  - Creation of third party modules and use of pip.
   - Virtual environments for projects.
 - **Concurrent and Asynchronous Programming**
   - Threads and concurrency in Python.
