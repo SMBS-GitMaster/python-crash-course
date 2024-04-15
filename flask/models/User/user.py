@@ -8,9 +8,11 @@ The table will have the following columns:
 - email: The email of the user.
 - password: The password of the user. This will be hashed before storing it in the database.
 """
-from db import db
-from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
+from db import db
+from flask import current_app as app
+from datetime import datetime, timedelta
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -27,21 +29,18 @@ class User(db.Model):
         }
 
     def encode_auth_token(self):
-        try:
-            payload = {
-                'exp': datetime.datetime.utcnow() + datetime.timedelta(days=0, seconds=5),
-                'iat': datetime.datetime.utcnow(),
-                'sub': self.public_id
-            }
+        payload = {
+            'exp': datetime.utcnow() + timedelta(days=1),
+            'iat': datetime.utcnow(),
+            'sub': self.public_id
+        }
 
-            return jwt.encode(
-                payload,
-                app.config.get('SECRET_KEY'),
-                algorithm='HS256'
-            )
-        except Exception as e:
-            return e
+        return jwt.encode(
+            payload,
+            app.config.get('SECRET_KEY')
+        )
 
     @staticmethod
     def decode_auth_token(auth_token):
-        return jwt.decode(auth_token, app.config.get('SECRET_KEY'))
+        return jwt.decode(auth_token, app.config.get('SECRET_KEY'), algorithms=['HS256'])
+

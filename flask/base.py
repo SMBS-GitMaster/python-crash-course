@@ -5,6 +5,7 @@ from flask import Flask, request, jsonify, make_response
 from flask_sqlalchemy import SQLAlchemy
 from middleware import requires_authentication
 from datetime import datetime, timedelta
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from dotenv import load_dotenv
 
@@ -23,6 +24,7 @@ db.init_app(app)
 
 # We have a model class called TODO, which is a subclass of db.Model. This class will be used to create a table in the database.
 from models.Todo import Todo
+from models.User import User
 
 # This will create the table in the database.
 with app.app_context():
@@ -47,7 +49,7 @@ parameter here.
 def get_todos(user):
     todos = (
         Todo.query
-        .filter_by(owner = user['public_id'])
+        .filter_by(owner = user.public_id)
         .all()
     )
 
@@ -63,7 +65,7 @@ def create_todo(user):
         return jsonify({'error': 'Description is too long!'}), 400
 
     # Create a new Todo object. The owner of the Todo will be the current user.
-    todo = Todo(owner=user['public_id'], title=data['title'], description=data['description'])
+    todo = Todo(owner=user.public_id, title=data['title'], description=data['description'])
 
     # Add the Todo to the database and commit the changes.
     db.session.add(todo)
@@ -78,7 +80,7 @@ def update_todo(user, id):
     todo = Todo.query.get(id)
 
     # Check if the current user owns this Todo
-    if current_user['public_id'] != todo.owner:
+    if user.public_id != todo.owner:
         return jsonify({'error': 'You do not own this Todo!'}), 403
 
     if len(data['title']) > 255:
@@ -97,7 +99,7 @@ def update_todo(user, id):
 @requires_authentication
 def delete_todo(user, id):
     # Check if the current user owns this Todo
-    if current_user['public_id'] != Todo.query.get(id).owner:
+    if user.public_id != Todo.query.get(id).owner:
         return jsonify({'error': 'You do not own this Todo!'}), 403
 
     todo = Todo.query.get(id)
@@ -111,7 +113,7 @@ Additionally, we're gonna create 2 more endpoints to handle user registration an
 """
 @app.route('/login', methods =['POST'])
 def login():
-    data = request.get_json()
+    data = request.form
 
     if not data or not data.get('email') or not data.get('password'):
         return make_response(
@@ -121,7 +123,7 @@ def login():
         )
 
     user = User.query\
-        .filter_by(email = auth.get('email'))\
+        .filter_by(email = data.get('email'))\
         .first()
 
     if not user:
@@ -131,13 +133,16 @@ def login():
             {'WWW-Authenticate' : 'Basic realm="User does not exist"'}
         )
 
-    if check_password_hash(user.password, auth.get('password')):
-        token = user.encode_auth_token()
-
-        return make_response(jsonify({'token' : token.decode('UTF-8')}), 201)
+    if check_password_hash(user.password, data.get('password')):
+        try:
+            token = user.encode_auth_token()
+            return make_response(jsonify({'token' : token}), 200)
+        except Exception as e:
+            print('An error occurred while generating the token.', e)
+            return make_response(jsonify({'message' : "Unable to login."}), 201)
 
     return make_response(
-        'Could not verify',
+        'The password provided is incorrect',
         403,
         {'WWW-Authenticate' : 'Basic realm="The password provided is incorrect"'}
     )
@@ -145,7 +150,7 @@ def login():
 # signup route
 @app.route('/signup', methods =['POST'])
 def signup():
-    data = request.get_json()
+    data = request.form
 
     name, email = data.get('name'), data.get('email')
     password = data.get('password')
