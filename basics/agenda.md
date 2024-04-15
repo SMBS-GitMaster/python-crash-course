@@ -39,6 +39,6 @@
   - Threads and concurrency in Python.
   - Asynchronous programming with asyncio and async/await.
 - **Web development with Python**
-  - Introduction to web frameworks (Flask, Django).
+  - Web frameworks (Flask, Django).
   - Database manipulation with ORMs (SQLAlchemy).
   - Authentication and authorization.
