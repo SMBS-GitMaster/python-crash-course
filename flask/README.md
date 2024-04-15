@@ -2,13 +2,13 @@
 
 Hello!
 
-During the first three weeks of the course, you'll be implementing a Flask application that will allow users to create, read, update, and delete (CRUD) todos. The application will also have user authentication and authorization.
+During the last weeks of the course, you'll be implementing a Flask application that will allow users to create, read, update, and delete (CRUD) todos. The application will also have user authentication and authorization.
 
 This repository contains the source files for the final result that I'm expecting to see from all of you. Obviously, you use this repository as a reference, but I encourage you to try to implement the application on your own first.
 
 Good luck!
 
-## Getting started
+## Running the demo
 
 1. Clone this repository
 2. Create a virtual environment
@@ -24,7 +24,7 @@ git clone https://github.com/coalio/python-crash-course.git
 ### Create a virtual environment
 
 ```bash
-cd python-crash-course
+cd python-crash-course/flask
 python3 -m venv venv
 ```
 
