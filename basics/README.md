@@ -18,7 +18,7 @@ Make sure you have Python installed on your computer.
 ### Mac
 
 1. Open the Terminal app.
-2. Install Homebrew by running the following command:
+2. Install Homebrew (if not installed) by running the following command:
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```

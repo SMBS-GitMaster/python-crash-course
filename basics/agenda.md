@@ -17,6 +17,12 @@
 - **Functions and modules**
   - Definitions and usage
   - Modules
+- **Expressions**
+  - List comprehensions
+  - Dictionary comprehensions
+  - Set comprehensions
+  - Lambda functions
+  - Generators
 - **POO**
   - Basic concepts
   - Class, object and methods
