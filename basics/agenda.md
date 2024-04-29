@@ -17,7 +17,7 @@
 - **Functions and modules**
   - Definitions and usage
   - Modules
-- **Expressions**
+- **Expressions & comprehensions**
   - List comprehensions
   - Dictionary comprehensions
   - Set comprehensions

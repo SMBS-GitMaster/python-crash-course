@@ -46,9 +46,30 @@ Operators are used to perform operations on variables. The basic operators in Py
 - **Comparison operators**: ==, !=, >, <, >=, <=.
 - **Logical operators**: and, or, not.
 - **Assignment operators**: =, +=, -=, *=, /=, %=, //=.
+    - After Python 3.8, the walrus operator `:=` was introduced.
 - **Identity operators**: is, is not.
 - **Membership operators**: in, not in.
 - **Bitwise operators**: &, |, ^, ~, <<, >>.
+
+Operators can also be chained together to form more complex expressions. For example:
+
+```python
+a = 1
+b = 2
+c = 3
+
+# Here, we're gonna chain comparison operators
+if a < b < c:
+    print('a is less than b and b is less than c')
+
+# This one is interesting, it uses the walrus operator, introduced in Python 3.8
+# It allows you to assign a value to a variable as part of an expression
+n = ""
+if len((n := input("Enter your name: "))) > 5:
+    print(f"Your name is {n}, and that's more than 5 characters long")
+else:
+    print(f"Your name is {n}, and that's less than 5 characters long")
+```
 
 ### Flow control
 
@@ -75,6 +96,12 @@ while a < 10:
 # range is a built-in class that generates a sequence of numbers
 for i in range(10):
     print(i)
+    if i > 11:
+      print('Breaking the loop')
+      break
+else:
+  # This block will be executed after the loop finishes if it didnt encounter a break statement
+    print('Loop finished')
 ```
 
 ### Functions
@@ -84,6 +111,13 @@ Functions are used to group code that performs a specific task. Functions can ta
 ```python
 def my_function(a, b):
     return a + b
+
+def no_implementation():
+    pass
+    
+# Additionally, we can also use "..." to indicate that the implementation is missing
+def missing_implementation():
+    ...
 
 result = my_function(1, 2)
 print(result)
