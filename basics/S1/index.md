@@ -1,5 +1,15 @@
 # Session 1: Introduction to Python
 
+First step, let's create a venv
+
+`python3 -m venv venv`
+
+Then, activate it
+
+`source venv/bin/activate`
+
+Okay, let's go
+
 ## Topics
 
 - **Variables, data types and operators**
@@ -114,7 +124,7 @@ def my_function(a, b):
 
 def no_implementation():
     pass
-    
+
 # Additionally, we can also use "..." to indicate that the implementation is missing
 def missing_implementation():
     ...
@@ -198,3 +208,7 @@ for i in fibonacci(10):
 ```
 
 This will print the first 10 numbers in the Fibonacci sequence.
+
+Generators are a powerful feature of Python that allows you to create iterators in a more concise and readable way. They are often used in situations where you need to generate a large sequence of values, but you don't want to store them all in memory at once, or when you need to generate values on the fly.
+
+
