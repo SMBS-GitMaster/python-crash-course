@@ -8,7 +8,7 @@ At the time of writing there are two major Python standards in active use.
 
 First we have Python 2.7 which is the most current version of Python 2. Python 2 has technically reached its end of life, and will no longer get any additional updates, but there’s still a huge amount of Python 2 code out there!
 
-The second branch of Python is Python 3, with the most current version being Python 3.9. Python 3 was intended to be a replacement for Python 2, and boasts a number of improvements along with some significant syntax changes. Code written in Python 2 may not be compatible with Python 3, and even if the code runs we may end up with unexpected behaviour.
+The second branch of Python is Python 3, with the most current version being Python 3.12. Python 3 was intended to be a replacement for Python 2, and boasts a number of improvements along with some significant syntax changes. Code written in Python 2 may not be compatible with Python 3, and even if the code runs we may end up with unexpected behaviour.
 
 ## Numbers
 
