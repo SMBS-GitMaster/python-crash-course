@@ -62,3 +62,11 @@ This way you can conveniently define your context managers and use them later in
 ## Conclusion
 
 Context managers are a powerful feature of Python that allow you to manage resources, handle exceptions, and provide a clean and concise way to set up and tear down runtime contexts. They are used extensively in Python for file I/O, database connections, and other resource management tasks. By understanding how context managers work and how to create your own, you can write more robust and maintainable code.
+
+## Assignments
+
+Note: all assignments must be done in idiomatic Python. Doing it in too many lines or using too many variables is not idiomatic.
+
+1. Write a context manager that creates a temporary directory and deletes it when the context is exited.
+- Pause for 15 seconds after creating 5 files with random names (get 10 random characters from the alphabet) and random content (more random characters from the alphabet).
+- Print every action (entering the context, creating the directory, creating the files, pausing, and exiting the context).

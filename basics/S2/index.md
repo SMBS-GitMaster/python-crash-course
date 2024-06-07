@@ -76,3 +76,16 @@ class Truck(Vehicle):
 In this example, we have a `VehicleFactory` class with a factory method `create_vehicle` that creates objects of different subclasses based on the input parameter `vehicle_type`. Each subclass (`Car`, `Bike`, `Truck`) has a `drive` method that prints a message specific to that type of vehicle. We can use the factory method to create different types of vehicles and call the `drive` method on them.
 
 That's it for this session! We've covered the basics of Object Oriented Programming in Python. If you have any questions or suggestions for improvements, please open an issue on GitHub. You can also contribute to this course by submitting a pull request.
+
+
+## Assignments
+
+Note: all assignments must be done in idiomatic Python. Doing it in too many lines or using too many variables is not idiomatic.
+
+1. Write classes for the following shapes: `Circle`, `Rectangle`, and `Triangle`.
+- Each class should have a method `area` that calculates the area of the shape.
+- The `Circle` class should have a method `circumference` that calculates the circumference of the circle.
+- The `Rectangle` class should have a method `perimeter` that calculates the perimeter of the rectangle.
+- The `Triangle` class should have a method `is_right` that returns `True` if the triangle is a right triangle, and `False` otherwise.
+- You can assume that the shapes are 2D and are defined by their dimensions (e.g., radius for a circle, base and height for a triangle, etc.).
+

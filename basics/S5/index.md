@@ -87,6 +87,15 @@ os.path.split(file_path)
 os.path.abspath(file_path)
 ```
 
-# Conclusion
+## Conclusion
 
 In this guide, we learned how to read and write text files in Python, how to read and write binary files, and how to handle file and directory paths. Working with files is an essential part of programming, and Python provides powerful tools for working with files and directories. By understanding how to work with files in Python, you can build applications that read and write data to files, process binary data, and manipulate file paths with ease.
+
+## Assignments
+
+Note: all assignments must be done in idiomatic Python. Doing it in too many lines or using too many variables is not idiomatic.
+
+1. Write a program that reads a text file in the current directory and counts the number of words in the file.
+2. Write a program that reads a binary file in the current directory and prints the first 10 bytes in hexadecimal format. (Tip: you can use a .png or .jpg image as the file)
+3. Write a program that lists all the files in the current directory and prints their names and sizes in bytes. Make it recursive as well.
+

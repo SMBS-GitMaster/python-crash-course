@@ -261,3 +261,20 @@ By the way, [here's a full list of the functions provided by functools](https://
 ## Conclusion
 
 Thanks for staying! We've covered a lot of ground in this course, and I hope you've learned a lot about Python and programming in general. Functional programming is a powerful paradigm that can help you write more concise, readable, and maintainable code. By understanding the core concepts of functional programming, you can become a more effective programmer and build better software.
+
+## Assignment
+
+1. Write a program that implements a monad that reads a comma-separated string of numbers and returns a "Series" monad. Then implement the following functions:
+
+- `get`: Gets an index of the series
+- `then`: Applies a lambda in the previous result, if it's not None
+- `else`: Applies a lambda in the previous result, if it's None
+
+Usage example:
+
+```python
+series = Series("1,2,3,4,5")
+series.get(2).then(lambda x: x * 2).else(lambda: 0)  # Output: 6, because 3 * 2 is 6
+series.get(10).then(lambda x: x * 2).else(lambda: 0)  # Output: 0, because 10 is out of bounds
+```
+

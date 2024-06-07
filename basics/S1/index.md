@@ -211,4 +211,10 @@ This will print the first 10 numbers in the Fibonacci sequence.
 
 Generators are a powerful feature of Python that allows you to create iterators in a more concise and readable way. They are often used in situations where you need to generate a large sequence of values, but you don't want to store them all in memory at once, or when you need to generate values on the fly.
 
+## Assignments
 
+Note: all assignments must be done in idiomatic Python. Doing it in too many lines or using too many variables is not idiomatic.
+
+1. Write a Python program that takes an array of numbers from the command line using a list comprehension and prints the sum of the squares of the numbers.
+  - You must make a generator that generates the squares of the numbers, getting the list as an argument.
+  - You must use a list comprehension to sum the squares of the numbers.

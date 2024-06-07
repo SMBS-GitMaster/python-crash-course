@@ -79,7 +79,7 @@ In this example, we use a `try` block to wrap the code that might raise an excep
 ### Caveats
 
 There are some caveats to exception handling that you should be aware of, such as:
-- Exceptions are not free: even though they're much more efficient than in other languages, they take time to be raised and caught, so you should avoid using them for trivial things such as control flow. 
+- Exceptions are not free: even though they're much more efficient in Python than in other languages, they take time to be raised and caught, so you should avoid using them for trivial things such as control flow. 
 - When within a `context manager` (like a `with` block), the manager decides whether to handle the exception or propagate it. The `open` function is a context manager, so it will handle the exception and close the file if an error occurs. There's also some context managers that will propagate the exception, like the `unittest` module. We'll delve into context managers in a future session.
 
 ## Customized exceptions
@@ -103,3 +103,9 @@ This example defines a custom exception class `MyCustomError` that inherits from
 
 We're using the `super()` function to call the constructor of the parent class `Exception` and pass the custom error message to it. This ensures that the exception is properly initialized and can be caught and handled by the `except` block, as expected.
 
+## Assignments
+
+Note: all assignments must be done in idiomatic Python. Doing it in too many lines or using too many variables is not idiomatic.
+
+1. Make a program that forces all of the built-in Python exceptions at least once, without using raise. Catch them, print the details (without the stack trace) and continue the program execution.
+- You can investigate the Python built-in exceptions [here](https://docs.python.org/3/library/exceptions.html#exception-hierarchy). 

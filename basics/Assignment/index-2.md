@@ -19,12 +19,46 @@ To complete this project, you will need to implement the following features:
 
 To implement the todo list application, you can follow these steps:
 
-1. Create a Python script `todo.py` that will contain the core functionality of the todo list.
-2. Implement functions to add a task, view tasks, and remove a task from the list.
-3. Implement functions to save the todo list to a JSON file and load it from the file.
-4. Test the application by adding, viewing, and removing tasks from the list.
+1. Similar to the previous session (S6), this time you must implement a "Database" monad that receives a path to a JSON as input, and implement the following functions
+- `get(key: str) -> Any`: returns the value associated with the key, or None if the key doesn't exist
+- `set(key: str, value: Any) -> None`: sets the value associated with the key. Note that this information must be written to the db json immediately
+- `delete(key: str) -> None`: deletes the key from the database. Note that this must be deleted in the db json immediately
+- `keys() -> List[str]`: returns a list of all the keys in the database
+- `values() -> List[Any]`: returns a list of all the values in the database
+
+The monad will be useful for this:
+
+1. We'll make a simple program that receives a sql'ish statement from the user:
+
+```sql
+> get 1;
+None
+> set 1 "Buy milk"; set 2 "Buy bread";
+> delete 1;
+> get 1; get 2;
+Buy milk    Buy bread
+> delete 1; delete 2;
+> get 1; get 2;
+None    None
+```
+
+This should compile to the following usage of the monad
+```python
+db = Database("todos.json")
+print(db.get("1"))
+db.set("1", "Buy milk").set("2", "Buy bread")
+print(db.get("1"), db.get("2"))
+db.delete("1").delete("2")
+print(db.get("1"), db.get("2"))
+```
+
+Make sure to handle exceptions (e.g., the key does not exist when deleting) and to write the changes to the JSON file immediately after every operation. Also, all operations should be asynchronous as well.
 
 ## Project Submission
 
 To submit your project, please create a GitHub repository and upload your `todo.py` script along with any other necessary files. You can also include a README file with instructions on how to run the application and use its features.
+
+## Need help?
+
+You can ask me for help, I'll answer any question you might have!
 

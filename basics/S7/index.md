@@ -83,3 +83,7 @@ await task
 ## Conclusion
 
 Asyncio is a powerful library that allows you to write asynchronous code in Python, using the async/await syntax. By defining coroutines and using the asyncio event loop, you can write code that performs I/O-bound operations concurrently, without blocking the main thread of execution. Asyncio is a great tool for writing high-performance applications that need to perform many tasks concurrently, and can help you write more efficient and scalable code.
+
+## Assignments
+
+Since this is the last session, the assignment is in the Assignment folder.
